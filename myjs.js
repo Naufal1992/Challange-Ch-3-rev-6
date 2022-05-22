@@ -3,6 +3,9 @@ class LogicGame {
     #secondButton;
 
     constructor (tombolSatu, tombolDua){
+        if (this.constructor === LogicGame) {
+            throw new Error("Error Bro")
+        }
         this.#firstButton = tombolSatu ;
         this.#secondButton = tombolDua ;
     }
@@ -119,6 +122,7 @@ const coreGame = new Update(x, y, z)
 
 function batu() {
     coreGame.mulaiBatu ()
+    
 }
 function kertas() {
     coreGame.mulaiKertas ()
