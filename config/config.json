@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "naufal",
+    "password": "123456",
+    "database": "db_resource",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": "6666"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
