@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=yes">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+
+    <!--CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>This Game</title>
+  </head>
+  <body>
+    <main class="canvas">
+      <div class="contain">
+        <div class="row">
+          <div class="d-flex col align-items-center mb-63">
+            <P id="style-1"><</P>
+            <img src="/assets/logo 1.png" alt="LOGO" class="size-logo">
+            <p class="t-ali-c" id="style-3">ROCK PAPER SCISSORS</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-flex col-auto f-dir-col ms-left-auto">
+            <p class="t-ali-c" id="style-2">PLAYER 1</p>
+            <button onclick="batu()" class="btn-1 "><img src="/assets/batu.png" alt="Batu" class="d-block size-batu margin-auto"></button>
+            <button onclick="kertas()" class="btn-1"><img src="/assets/kertas.png" alt="Kertas" class="d-block size-kertas margin-auto"></button>
+            <button onclick="gunting()" class="btn-1"><img src="/assets/gunting.png" alt="Gunting" class="d-block size-gunting margin-auto"></button>
+          </div>
+          <div class="d-flex col-auto f-dir-col mse-50" >
+            <p class="d-block t-ali-c value" id="style-4">VS</p>
+            <p class="d-none t-ali-c value" id="style-6">PLAYER 1 WIN</p>
+            <p class="d-none t-ali-c value" id="style-6">COM</br>WIN</p>
+            <p class="d-none t-ali-c value" id="style-7">draw</p>
+            <button onclick="ref()" style="background-color: transparent; border-color: transparent; width: 296px; height: 204px;"><img src="/assets/refresh.png" alt="Refresh" class="size-refresh b-img-center mt-94"></button>
+          </div>
+          <div class="d-flex col-auto f-dir-col ms-right-auto">
+            <p class="t-ali-c" id="style-5">COM</p>
+            <button class="btn-2"><img src="/assets/batu.png" alt="Batu" class="d-block size-batu margin-auto"></button>
+            <button class="btn-2"><img src="/assets/kertas.png" alt="Kertas" class="d-block size-kertas margin-auto"></button>
+            <button class="btn-2"><img src="/assets/gunting.png" alt="Gunting" class="d-block size-gunting margin-auto"></button>
+          </div>
+        </div>
+      </div>
+    </main>
+  
+    <script type="text/javascript" src="/js/myjs.js"></script>
+  </body>
+</html>
