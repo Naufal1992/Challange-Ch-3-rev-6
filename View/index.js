@@ -1,5 +1,5 @@
 const express = require('express');
-const { user, detail, point } = require('../models');
+const { user, detail } = require('../models');
 const router = express.Router();
 
 
@@ -27,24 +27,52 @@ router.get("/list-player", (req,res)=>{
     })
 });
 
+router.get("/:id/edit", (req,res)=>{
+    const { id } = req.params
+    user.findOne({
+        where:{id},
+        include:detail
+    }).then (x =>{
+        res.render('index6.ejs', {x})
+    })
+});
 
-// Untuk di perbaiki dan di kembangkan
-// router.get("/list-player", (req,res)=>{
-//     user.findAll({
-//         include: [{
-//             model: detail,
-//             include: [{
-//               model: point
-//             }],
-//           }],
-//     })
-//         .then(x=>{
-//             res.render('index4.ejs', {x})
-//         })
-// });
 
 router.get("/list-player/create", (req,res)=>{
-    return res.render('index5.ejs')
+    res.render('index5.ejs')
+});
+
+router.get("/db/:id/delete", (req,res)=>{
+    const { id } = req.params
+
+    user.destroy({
+        where : {id}
+    }).then(() =>{
+        detail.destroy({
+            where : {id}
+        }).then(() =>{
+            res.redirect("/list-player")
+        })
+    })
+});
+
+router.post("/db/:id/edit", (req,res)=>{
+    const {id} = req.params
+    const { username, password, fullname, alias_name, birthplace } = req.body
+    user.update({
+        username,
+        password,
+    },{where : {id}
+    }).then(() =>{
+        detail.update({
+            fullname,
+            alias_name,
+            birthplace,  
+        }, {where : {id}
+        }).then(() =>{
+            res.redirect("/list-player")
+        })
+    })
 });
 
 router.post("/db-log", (req,res)=>{
@@ -69,8 +97,10 @@ router.post("/db-input", (req,res)=>{
         username,
         password,
         isSuperAdmin: false
-    }).then(() =>{
+    }).then(user =>{
         detail.create({
+            id:user.id,
+            id_user:user.id,
             fullname,
             alias_name,
             birthplace,
@@ -79,12 +109,5 @@ router.post("/db-input", (req,res)=>{
         })
     })
 });
-
-
-//         .then(Response =>{
-//             res.redirect("/list-player")
-//         })
-//     })
-// });
 
 module.exports = router;
